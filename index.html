@@ -1,62 +1,33 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-<title>Farhan | Sports Designer</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>Farhan Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-
-<div class="logo">Farhan.</div>
-
-<nav>
-
-<a>Clients</a>
-<a>Sports</a>
-<a>Esports</a>
-<a>Others</a>
-<a>Store</a>
-<a>Freebies</a>
-
-</nav>
-
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-left" id="homeBtn">Farhan.</div>
+  <div class="nav-right">
+    <span class="nav-item active" data-section="sports">Sports</span>
+    <span class="nav-item" data-section="others">Others</span>
+    <span class="nav-item" data-section="freebies">Freebies</span>
+  </div>
 </header>
 
-
+<!-- MAIN LAYOUT -->
 <div class="container">
 
-<aside class="sidebar">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar"></aside>
 
-<h4>Filter</h4>
-
-<ul>
-
-<li data-filter="all">All</li>
-<li data-filter="poster">Posters</li>
-<li data-filter="wallpaper">Wallpapers</li>
-<li data-filter="png">PNGs</li>
-<li data-filter="texture">Textures</li>
-
-</ul>
-
-</aside>
-
-
-<main class="grid" id="portfolio-grid">
-
-<!-- AUTO GENERATED PROJECTS -->
-
-</main>
+  <!-- GALLERY -->
+  <main class="gallery" id="gallery"></main>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
