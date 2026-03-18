@@ -1,124 +1,36 @@
-const data = {
-  sports: {
-    options: ["All", "Football", "Cricket"],
-    items: [
-      {
-        category: "Football",
-        img: "assets/thumbnails/s1.jpg",
-        link: "https://behance.net"
-      }
-    ]
-  },
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  others: {
-    options: ["All", "Posters", "Experiments"],
-    items: [
-      {
-        category: "Posters",
-        img: "assets/thumbnails/o1.jpg",
-        link: "https://behance.net"
-      }
-    ]
-  },
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo" id="home-btn">Farhan.</div>
+            <div class="nav-links">
+                <button class="nav-item active" data-target="Freebies">Freebies</button>
+                <button class="nav-item" data-target="Sports">Sports</button>
+                <button class="nav-item" data-target="Others">Others</button>
+            </div>
+        </nav>
 
-  freebies: {
-    options: ["All", "Wallpaper", "PNGs", "Textures"],
-    items: [
-      {
-        category: "Wallpaper",
-        img: "assets/thumbnails/f1.jpg",
-        download: "freebies/file1.zip"
-      }
-    ]
-  }
-};
+        <div class="layout-body">
+            <aside class="sidebar">
+                <ul id="context-menu">
+                    </ul>
+            </aside>
 
-let currentSection = "sports";
-let currentFilter = "All";
+            <main class="gallery-container">
+                <div class="bento-grid" id="gallery">
+                    </div>
+            </main>
+        </div>
+    </div>
 
-const sidebar = document.getElementById("sidebar");
-const gallery = document.getElementById("gallery");
-const navItems = document.querySelectorAll(".nav-item");
-
-/* NAV CLICK */
-navItems.forEach(item => {
-  item.addEventListener("click", () => {
-    document.querySelector(".nav-item.active").classList.remove("active");
-    item.classList.add("active");
-
-    currentSection = item.dataset.section;
-    currentFilter = "All";
-
-    renderSidebar();
-    renderGallery();
-  });
-});
-
-/* SIDEBAR */
-function renderSidebar() {
-  sidebar.innerHTML = "";
-
-  data[currentSection].options.forEach(option => {
-    const el = document.createElement("div");
-    el.className = "sidebar-item";
-    el.innerText = option;
-
-    if (option === currentFilter) el.classList.add("active");
-
-    el.addEventListener("click", () => {
-      currentFilter = option;
-      renderSidebar();
-      renderGallery();
-    });
-
-    sidebar.appendChild(el);
-  });
-}
-
-/* GALLERY */
-function renderGallery() {
-  gallery.innerHTML = "";
-
-  let items = data[currentSection].items;
-
-  if (currentFilter !== "All") {
-    items = items.filter(i => i.category === currentFilter);
-  }
-
-  items.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    if (currentSection === "freebies") {
-      card.classList.add("freebie");
-    }
-
-    const img = document.createElement("img");
-    img.src = item.img;
-
-    img.onload = () => img.classList.add("loaded");
-
-    card.appendChild(img);
-
-    /* CLICK ACTION */
-    if (item.link) {
-      card.onclick = () => window.open(item.link, "_blank");
-    }
-
-    if (item.download) {
-      const btn = document.createElement("a");
-      btn.className = "download-btn";
-      btn.innerText = "Download";
-      btn.href = item.download;
-      btn.setAttribute("download", "");
-
-      card.appendChild(btn);
-    }
-
-    gallery.appendChild(card);
-  });
-}
-
-/* INIT */
-renderSidebar();
-renderGallery();
+    <script src="script.js"></script>
+</body>
+</html>
