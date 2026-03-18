@@ -1,0 +1,51 @@
+body{
+margin:0;
+background:#0f0f0f;
+color:white;
+font-family:Arial;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+border-bottom:1px solid #222;
+}
+
+nav a{
+margin:0 12px;
+cursor:pointer;
+}
+
+.layout{
+display:flex;
+}
+
+.sidebar{
+width:200px;
+padding:30px;
+border-right:1px solid #222;
+}
+
+.grid{
+flex:1;
+padding:30px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:20px;
+}
+
+.project{
+overflow:hidden;
+border-radius:10px;
+position:relative;
+}
+
+.project img{
+width:100%;
+transition:.4s;
+}
+
+.project:hover img{
+transform:scale(1.08);
+}
